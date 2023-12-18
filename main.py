@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, statistics
 import pandas as pd
 
 localhost = False
@@ -35,7 +35,7 @@ def upload():
         max_type = this_year.groupby(['Route Type'])['Route Type'].count().idxmax()
         max_route = this_year['Route'][this_year['Your Stars'].idxmax()]
     number_days = this_year['Date'].nunique()
-    avg_ticklength = 4
+    avg_ticklength = statistics.mean(this_year['Notes'].length())
     return render_template('data.html', routes=routes, locations=locations, max_crag=max_crag, max_type=max_type, max_route=max_route,number_days=number_days,avg_ticklength=avg_ticklength)
 
 if __name__ == '__main__':
