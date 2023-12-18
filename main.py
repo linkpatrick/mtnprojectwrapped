@@ -36,7 +36,7 @@ def upload():
         max_type = this_year.groupby(['Route Type'])['Route Type'].count().idxmax()
         max_route = this_year['Route'][this_year['Your Stars'].idxmax()]
     number_days = this_year['Date'].nunique()
-    avg_ticklength = statistics.mean(this_year['Notes'].length())
+    avg_ticklength = 11
 
     
     
