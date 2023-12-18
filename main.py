@@ -36,7 +36,7 @@ def upload():
         max_route = this_year['Route'][this_year['Your Stars'].idxmax()]
     number_days = this_year['Date'].nunique()
     avg_ticklength = 4
-    return render_template('data.html', routes=routes, locations=locations, max_crag=max_crag, max_type=max_type, max_route=max_route,number_days=number_days,avg_ticklength=avg_ticklength))
+    return render_template('data.html', routes=routes, locations=locations, max_crag=max_crag, max_type=max_type, max_route=max_route,number_days=number_days,avg_ticklength=avg_ticklength)
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
