@@ -35,7 +35,7 @@ def upload():
         max_type = this_year.groupby(['Route Type'])['Route Type'].count().idxmax()
         max_route = this_year['Route'][this_year['Your Stars'].idxmax()]
     number_days = this_year['Date'].nunique()
-    avg_ticklength = statistics.mean([1, 3, 5, 7, 9, 11, 13])
+    avg_ticklength = 5
     return render_template('data.html', routes=routes, locations=locations, max_crag=max_crag, max_type=max_type, max_route=max_route,number_days=number_days,avg_ticklength=avg_ticklength)
 
 if __name__ == '__main__':
