@@ -108,9 +108,30 @@
         </div>
 
         <div class="section">
-            <div class="section-title">Average tick length</div>
+            <div class="section-title"> <span class="mountain-icon">✒️</span> Average tick length</div>
             <div class="section-content">{{avg_ticklength}}</div>
         </div>
+
+        <div class="section">
+            <h1>Plot using Flask</h1>
+            <img src="data:image/png;base64,{{ plot_url }}" class="img-responsive" alt="plot" >
+        </div>
+
+        <br>
+        <div class="section">
+            <div class="section-title"> <span class="mountain-icon">😈</span> Compare with your FRIEND</div>
+            <form action="/compareUS" method="post" enctype="multipart/form-data" id="profileForm">
+
+            <label for="profileURL2">Your FRIEND'S Mountain Project URL</label>
+            <input type="url" id="profileURL2" name="profileURL2">
+            <br>
+            <label for="csvFile2" id="profileForm">Alternatively, If their ticks are private, upload their ticks as a CSV</label>
+            <input type="file" id="csvFile2" name="csvFile2" accept=".csv">
+        
+            <button type="submit">Compare</button>
+    </form>
+            </div>
+
         <!-- Add other sections following a similar structure -->
 
         <div class="sharePrompt">
