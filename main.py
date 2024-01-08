@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pandas as pd
 
+
 import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
@@ -108,7 +109,10 @@ def compareUS():
         data2['TickLength'] = data2['Notes'].str.len().values
 
         #Now concatenate the new data
-        data = pd.concat([data,data2])
+        data = pd.concat([data,data2],ignore_index=True)
+
+        # data = data[~data.index.duplicated(keep='first')]
+
 
         plt.figure()
         sns.violinplot(data=data,x="ClimberName", y="TickLength", hue="Just this Year",split=True, inner="quart")
