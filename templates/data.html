@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Helvetica Neue', sans-serif;
-            background-color: #f7f7f7;
+            background-color: #6b9596;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,7 +24,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             padding: 40px;
             text-align: center;
-            max-width: 400px;
+            max-width: 700px;
             width: 90%;
         }
 
@@ -34,6 +34,15 @@
             color: #333;
         }
 
+	button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+        }
         .section {
             margin-bottom: 20px;
             border-bottom: 1px solid #ddd;
@@ -78,6 +87,25 @@
         <h1>🧗‍♂️ Climbing Wrapped</h1>
 
         <div class="section">
+            <h1>Tick character length</h1>
+            <img src="data:image/png;base64,{{ plot_url }}" class="img-responsive" alt="plot" >
+        </div>
+
+        <br>
+        <div class="section">
+            <div class="section-title"> <span class="mountain-icon">😈</span> Compare with your FRIEND</div>
+            <form action="/compareUS" method="post" enctype="multipart/form-data" id="profileForm">
+
+            <label for="profileURL2">Your FRIEND'S Mountain Project URL</label>
+            <input type="url" id="profileURL2" name="profileURL2">
+            <br>
+            <label for="csvFile2" id="profileForm">Alternatively, If their ticks are private, upload their ticks as a CSV</label>
+            <input type="file" id="csvFile2" name="csvFile2" accept=".csv">
+       		<br> <br> 
+            <button type="submit">Compare</button>
+    </form>
+            </div>
+        <div class="section">
             <div class="section-title"><span class="mountain-icon">⛰️</span> Number of Routes Climbed</div>
             <div class="section-content">{{routes}}</div>
         </div>
@@ -112,25 +140,6 @@
             <div class="section-content">{{avg_ticklength}}</div>
         </div>
 
-        <div class="section">
-            <h1>Plot using Flask</h1>
-            <img src="data:image/png;base64,{{ plot_url }}" class="img-responsive" alt="plot" >
-        </div>
-
-        <br>
-        <div class="section">
-            <div class="section-title"> <span class="mountain-icon">😈</span> Compare with your FRIEND</div>
-            <form action="/compareUS" method="post" enctype="multipart/form-data" id="profileForm">
-
-            <label for="profileURL2">Your FRIEND'S Mountain Project URL</label>
-            <input type="url" id="profileURL2" name="profileURL2">
-            <br>
-            <label for="csvFile2" id="profileForm">Alternatively, If their ticks are private, upload their ticks as a CSV</label>
-            <input type="file" id="csvFile2" name="csvFile2" accept=".csv">
-        
-            <button type="submit">Compare</button>
-    </form>
-            </div>
 
         <!-- Add other sections following a similar structure -->
 
